@@ -29,4 +29,23 @@
 
 @implementation LBASource
 
+@synthesize useHostEndianness;
+
+- (void)delimitBySize:(int)size {
+	delimiter = LBA_DELIMIT_BY_SIZE;
+	delimitSize = size;
+}
+
+- (void)delimitByTimeout:(int)timeout {
+	delimiter = LBA_DELIMIT_BY_TIMEOUT;
+	delimitTimeout = timeout;
+}
+
+- (void)delimitByInternalDataAtOffset:(int)offset ofSize:(int)bytes {
+	delimiter = LBA_DELIMIT_BY_INTERNAL_DATA;
+	internalDelimitDataOffset = offset;
+	internalDelimitDataBytes = bytes;
+}
+
+
 @end

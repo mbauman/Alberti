@@ -34,4 +34,10 @@
 	NSString *description;
 }
 
+@property (copy) NSData *data;
+@property (copy) NSDate *time;
+
+@property (copy) NSString *source;
+@property (copy) NSString *description;
+
 @end

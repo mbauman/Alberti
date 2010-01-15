@@ -29,4 +29,6 @@
 
 @implementation LBAData
 
+@synthesize data, time, source, description;
+
 @end
