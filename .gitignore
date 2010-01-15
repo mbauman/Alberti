@@ -1,0 +1,9 @@
+*.mode1v3
+*.pbxuser
+*.perspective 
+*.perspectivev3
+*.pyc 
+*~.nib/
+build/*
+.DS_Store
+profile
