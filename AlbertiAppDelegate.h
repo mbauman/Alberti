@@ -26,10 +26,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class LBACollectWindowController;
+
 @interface AlbertiAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
+    LBACollectWindowController *windowController;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, retain) LBACollectWindowController *windowController;
 
 @end

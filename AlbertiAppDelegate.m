@@ -25,13 +25,22 @@
 //
 
 #import "AlbertiAppDelegate.h"
+#import "LBACollectWindowController.h"
 
 @implementation AlbertiAppDelegate
 
-@synthesize window;
+@synthesize windowController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	// Insert code here to initialize your application 
+	self.windowController = [[[LBACollectWindowController alloc] init] autorelease];
+	[[self.windowController window] makeKeyAndOrderFront:self];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+	[self.windowController close];
+	self.windowController = nil;
 }
 
 @end

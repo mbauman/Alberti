@@ -1,8 +1,8 @@
 //
-//  LBASource.h
+//  LBACollectWindowController.m
 //  Alberti
 //
-//  Created by Matt Bauman on 1/14/10.
+//  Created by Matt Bauman on 1/18/10.
 //  The MIT license: Copyright (c) 2010 Matt Bauman.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,36 +24,24 @@
 //  IN THE SOFTWARE.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "LBACollectWindowController.h"
 
-enum LBA_DELIMITER {
-	LBA_DELIMIT_BY_PACKET,
-	LBA_DELIMIT_BY_SIZE,
-	LBA_DELIMIT_BY_TIMEOUT,
-	LBA_DELIMIT_BY_INTERNAL_DATA,
-};
 
-enum LBA_ENDIAN {
-	LBA_ENDIAN_SAME_AS_HOST,
-	LBA_ENDIAN_NETWORK,
-	LBA_ENDIAN_LITTLE,
-	LBA_ENDIAN_BIG,
-};
+@implementation LBACollectWindowController
 
-@interface LBASource : NSObject {
-	enum LBA_DELIMITER delimiter;
-	int delimitSize;
-	NSTimeInterval delimitTimeout;
-	int internalDelimitDataOffset;
-	int internalDelimitDataBytes;
-	
-	enum LBA_ENDIAN endian;
+/*
+- (void)windowDidLoad {
+}
+*/
+
+- (NSString *)windowNibName {
+	return @"CollectWindow";
 }
 
-@property enum LBA_ENDIAN endian;
-
-- (void)delimitBySize:(int)size;
-- (void)delimitByTimeout:(int)timeout;
-- (void)delimitByInternalDataAtOffset:(int)offset ofSize:(int)bytes;
+/*
+- (void)dealloc {	
+	[super dealloc];
+}
+*/
 
 @end

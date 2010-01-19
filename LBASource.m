@@ -29,7 +29,7 @@
 
 @implementation LBASource
 
-@synthesize useHostEndianness;
+@synthesize endian;
 
 - (void)delimitBySize:(int)size {
 	delimiter = LBA_DELIMIT_BY_SIZE;

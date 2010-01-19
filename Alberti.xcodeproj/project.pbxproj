@@ -15,6 +15,7 @@
 		C969922F1100223300BEEC08 /* CollectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C969922E1100223200BEEC08 /* CollectWindow.xib */; };
 		C969923C110031BD00BEEC08 /* LBASource.m in Sources */ = {isa = PBXBuildFile; fileRef = C969923B110031BD00BEEC08 /* LBASource.m */; };
 		C969923F1100356A00BEEC08 /* LBAData.m in Sources */ = {isa = PBXBuildFile; fileRef = C969923E1100356A00BEEC08 /* LBAData.m */; };
+		C9699296110573C200BEEC08 /* LBACollectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9699295110573C200BEEC08 /* LBACollectWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		C969923B110031BD00BEEC08 /* LBASource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBASource.m; sourceTree = "<group>"; };
 		C969923D1100356A00BEEC08 /* LBAData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAData.h; sourceTree = "<group>"; };
 		C969923E1100356A00BEEC08 /* LBAData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAData.m; sourceTree = "<group>"; };
+		C9699294110573C200BEEC08 /* LBACollectWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBACollectWindowController.h; sourceTree = "<group>"; };
+		C9699295110573C200BEEC08 /* LBACollectWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBACollectWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 				C969923B110031BD00BEEC08 /* LBASource.m */,
 				C969923D1100356A00BEEC08 /* LBAData.h */,
 				C969923E1100356A00BEEC08 /* LBAData.m */,
+				C9699294110573C200BEEC08 /* LBACollectWindowController.h */,
+				C9699295110573C200BEEC08 /* LBACollectWindowController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				256AC3DA0F4B6AC300CF3369 /* AlbertiAppDelegate.m in Sources */,
 				C969923C110031BD00BEEC08 /* LBASource.m in Sources */,
 				C969923F1100356A00BEEC08 /* LBAData.m in Sources */,
+				C9699296110573C200BEEC08 /* LBACollectWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
