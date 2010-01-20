@@ -31,6 +31,7 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Alberti-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Alberti-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Alberti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alberti.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90373D61106694200E60DD1 /* LBAEndian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAEndian.h; sourceTree = "<group>"; };
 		C969922E1100223200BEEC08 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/CollectWindow.xib; sourceTree = "<group>"; };
 		C969923A110031BD00BEEC08 /* LBASource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBASource.h; sourceTree = "<group>"; };
 		C969923B110031BD00BEEC08 /* LBASource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBASource.m; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 				C969923E1100356A00BEEC08 /* LBAData.m */,
 				C9699294110573C200BEEC08 /* LBACollectWindowController.h */,
 				C9699295110573C200BEEC08 /* LBACollectWindowController.m */,
+				C90373D61106694200E60DD1 /* LBAEndian.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

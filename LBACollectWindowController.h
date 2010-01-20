@@ -26,9 +26,20 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class LBASource;
 
 @interface LBACollectWindowController : NSWindowController {
+	LBASource *dataSource;
+	NSMutableArray *collectedData;
 
+	IBOutlet NSPopUpButton *dataSourcePopUpButton;
+	IBOutlet NSToolbarItem *startCollectingToolbarItem;
 }
 
+@property (retain) LBASource *dataSource;
+@property (retain) NSMutableArray *collectedData;
+
+- (IBAction) dataSourceChanged:(id)sender;
+- (IBAction) openDataSourceSettings:(id)sender;
+- (IBAction) startCollecting:(id)sender;
 @end

@@ -1,8 +1,8 @@
 //
-//  LBACollectWindowController.m
+//  LBAEndian.h
 //  Alberti
 //
-//  Created by Matt Bauman on 1/18/10.
+//  Created by Matt Bauman on 1/19/10.
 //  The MIT license: Copyright (c) 2010 Matt Bauman.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,38 +24,14 @@
 //  IN THE SOFTWARE.
 //
 
-#import "LBACollectWindowController.h"
+enum LBA_ENDIAN {
+	LBA_ENDIAN_LITTLE,
+	LBA_ENDIAN_BIG,
+#if __BIG_ENDIAN__
+    LBA_ENDIAN_SAME_AS_HOST = LBA_ENDIAN_BIG,
+#else
+	LBA_ENDIAN_SAME_AS_HOST = LBA_ENDIAN_LITTLE,
+#endif
+	LBA_ENDIAN_NETWORK = LBA_ENDIAN_BIG,
+};
 
-
-@implementation LBACollectWindowController
-
-@synthesize dataSource, collectedData;
-
-/*
-- (void)windowDidLoad {
-}
-*/
-
-- (NSString *)windowNibName {
-	return @"CollectWindow";
-}
-
-- (IBAction) dataSourceChanged:(id)sender {
-	
-}
-
-- (IBAction) openDataSourceSettings:(id)sender {
-	
-}
-- (IBAction) startCollecting:(id)sender {
-	
-}
-
-
-/*
-- (void)dealloc {	
-	[super dealloc];
-}
-*/
-
-@end

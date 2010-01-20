@@ -25,19 +25,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "LBAEndian.h"
 
 enum LBA_DELIMITER {
-	LBA_DELIMIT_BY_PACKET,
+	LBA_DELIMIT_BY_PACKET_OR_FILE,
 	LBA_DELIMIT_BY_SIZE,
 	LBA_DELIMIT_BY_TIMEOUT,
 	LBA_DELIMIT_BY_INTERNAL_DATA,
-};
-
-enum LBA_ENDIAN {
-	LBA_ENDIAN_SAME_AS_HOST,
-	LBA_ENDIAN_NETWORK,
-	LBA_ENDIAN_LITTLE,
-	LBA_ENDIAN_BIG,
 };
 
 @interface LBASource : NSObject {
@@ -52,8 +46,9 @@ enum LBA_ENDIAN {
 
 @property enum LBA_ENDIAN endian;
 
+- (void)delimitByPacketOrFile;
 - (void)delimitBySize:(int)size;
-- (void)delimitByTimeout:(int)timeout;
+- (void)delimitByTimeout:(NSTimeInterval)timeout;
 - (void)delimitByInternalDataAtOffset:(int)offset ofSize:(int)bytes;
 
 @end

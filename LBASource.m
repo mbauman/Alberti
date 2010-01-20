@@ -31,12 +31,17 @@
 
 @synthesize endian;
 
+#pragma mark delimiter setters
+- (void)delimitByPacketOrFile {
+	delimiter = LBA_DELIMIT_BY_PACKET_OR_FILE;
+}
+
 - (void)delimitBySize:(int)size {
 	delimiter = LBA_DELIMIT_BY_SIZE;
 	delimitSize = size;
 }
 
-- (void)delimitByTimeout:(int)timeout {
+- (void)delimitByTimeout:(NSTimeInterval)timeout {
 	delimiter = LBA_DELIMIT_BY_TIMEOUT;
 	delimitTimeout = timeout;
 }
