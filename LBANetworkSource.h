@@ -1,8 +1,8 @@
 //
-//  LBASource.m
+//  LBANetworkSource.h
 //  Alberti
 //
-//  Created by Matt Bauman on 1/14/10.
+//  Created by Matt Bauman on 1/19/10.
 //  The MIT license: Copyright (c) 2010 Matt Bauman.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,29 +24,11 @@
 //  IN THE SOFTWARE.
 //
 
+#import <Cocoa/Cocoa.h>
 #import "LBASource.h"
 
+@interface LBANetworkSource : LBASource {
 
-@implementation LBASource
-
-@synthesize delimiter, delimitSize, delimitTimeout;
-@synthesize internalDelimitDataOffset, internalDelimitDataBytes, endian;
-
-/* Provide enumeration checking on the enum setters */
-- (void) setDelimiter:(enum LBA_DELIMITER)value {
-	NSAssert(value == LBA_DELIMIT_BY_PACKET_OR_FILE ||
-		     value == LBA_DELIMIT_BY_SIZE           ||
-			 value == LBA_DELIMIT_BY_TIMEOUT        ||
-		     value == LBA_DELIMIT_BY_INTERNAL_DATA  ||
-             value == LBA_DELIMIT_BY_CHARACTER, @"Invalid delimiter enum");
-	delimiter = value;
-}
-- (void) setEndian:(enum LBA_ENDIAN)value {
-	NSAssert(value == LBA_ENDIAN_SAME_AS_HOST ||
-			 value == LBA_ENDIAN_NETWORK      ||
-			 value == LBA_ENDIAN_LITTLE       ||
-			 value == LBA_ENDIAN_BIG, @"Invalid endian enum");
-	endian = value;
 }
 
 @end

@@ -36,8 +36,8 @@
 }
 */
 
-- (NSString *)windowNibName {
-	return @"CollectWindow";
+- (NSString *) windowNibName {
+	return @"LBACollectWindow";
 }
 
 - (IBAction) dataSourceChanged:(id)sender {
@@ -53,7 +53,7 @@
 
 
 /*
-- (void)dealloc {	
+- (void) dealloc {	
 	[super dealloc];
 }
 */

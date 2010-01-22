@@ -32,23 +32,25 @@ enum LBA_DELIMITER {
 	LBA_DELIMIT_BY_SIZE,
 	LBA_DELIMIT_BY_TIMEOUT,
 	LBA_DELIMIT_BY_INTERNAL_DATA,
+	LBA_DELIMIT_BY_CHARACTER,
 };
 
 @interface LBASource : NSObject {
+	enum LBA_ENDIAN endian;
+
 	enum LBA_DELIMITER delimiter;
 	int delimitSize;
 	NSTimeInterval delimitTimeout;
 	int internalDelimitDataOffset;
 	int internalDelimitDataBytes;
-	
-	enum LBA_ENDIAN endian;
 }
 
 @property enum LBA_ENDIAN endian;
+@property enum LBA_DELIMITER delimiter;
+@property int delimitSize;
+@property NSTimeInterval delimitTimeout;
+@property int internalDelimitDataOffset;
+@property int internalDelimitDataBytes;
 
-- (void)delimitByPacketOrFile;
-- (void)delimitBySize:(int)size;
-- (void)delimitByTimeout:(NSTimeInterval)timeout;
-- (void)delimitByInternalDataAtOffset:(int)offset ofSize:(int)bytes;
 
 @end

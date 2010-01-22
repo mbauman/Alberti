@@ -12,10 +12,13 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		C90373D411061C3900E60DD1 /* CollectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90373D311061C3900E60DD1 /* CollectWindow.xib */; };
+		C90373D411061C3900E60DD1 /* LBACollectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90373D311061C3900E60DD1 /* LBACollectWindow.xib */; };
 		C969923C110031BD00BEEC08 /* LBASource.m in Sources */ = {isa = PBXBuildFile; fileRef = C969923B110031BD00BEEC08 /* LBASource.m */; };
 		C969923F1100356A00BEEC08 /* LBAData.m in Sources */ = {isa = PBXBuildFile; fileRef = C969923E1100356A00BEEC08 /* LBAData.m */; };
 		C9699296110573C200BEEC08 /* LBACollectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9699295110573C200BEEC08 /* LBACollectWindowController.m */; };
+		C96993021106AFF000BEEC08 /* LBAFileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C96993011106AFF000BEEC08 /* LBAFileSource.m */; };
+		C96993051106B02200BEEC08 /* LBANetworkSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C96993041106B02200BEEC08 /* LBANetworkSource.m */; };
+		C969930C1106BC1900BEEC08 /* LBAFileSourceSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C969930B1106BC1900BEEC08 /* LBAFileSourceSettings.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,13 +35,18 @@
 		8D1107310486CEB800E47090 /* Alberti-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Alberti-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Alberti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alberti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90373D61106694200E60DD1 /* LBAEndian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAEndian.h; sourceTree = "<group>"; };
-		C969922E1100223200BEEC08 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/CollectWindow.xib; sourceTree = "<group>"; };
+		C969922E1100223200BEEC08 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/LBACollectWindow.xib; sourceTree = "<group>"; };
 		C969923A110031BD00BEEC08 /* LBASource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBASource.h; sourceTree = "<group>"; };
 		C969923B110031BD00BEEC08 /* LBASource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBASource.m; sourceTree = "<group>"; };
 		C969923D1100356A00BEEC08 /* LBAData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAData.h; sourceTree = "<group>"; };
 		C969923E1100356A00BEEC08 /* LBAData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAData.m; sourceTree = "<group>"; };
 		C9699294110573C200BEEC08 /* LBACollectWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBACollectWindowController.h; sourceTree = "<group>"; };
 		C9699295110573C200BEEC08 /* LBACollectWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBACollectWindowController.m; sourceTree = "<group>"; };
+		C96993001106AFF000BEEC08 /* LBAFileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAFileSource.h; sourceTree = "<group>"; };
+		C96993011106AFF000BEEC08 /* LBAFileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAFileSource.m; sourceTree = "<group>"; };
+		C96993031106B02200BEEC08 /* LBANetworkSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBANetworkSource.h; sourceTree = "<group>"; };
+		C96993041106B02200BEEC08 /* LBANetworkSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBANetworkSource.m; sourceTree = "<group>"; };
+		C96993091106BC0D00BEEC08 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/LBAFileSourceSettings.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,17 @@
 			children = (
 				256AC3D80F4B6AC300CF3369 /* AlbertiAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* AlbertiAppDelegate.m */,
-				C969923A110031BD00BEEC08 /* LBASource.h */,
-				C969923B110031BD00BEEC08 /* LBASource.m */,
 				C969923D1100356A00BEEC08 /* LBAData.h */,
 				C969923E1100356A00BEEC08 /* LBAData.m */,
 				C9699294110573C200BEEC08 /* LBACollectWindowController.h */,
 				C9699295110573C200BEEC08 /* LBACollectWindowController.m */,
 				C90373D61106694200E60DD1 /* LBAEndian.h */,
+				C969923A110031BD00BEEC08 /* LBASource.h */,
+				C969923B110031BD00BEEC08 /* LBASource.m */,
+				C96993001106AFF000BEEC08 /* LBAFileSource.h */,
+				C96993011106AFF000BEEC08 /* LBAFileSource.m */,
+				C96993031106B02200BEEC08 /* LBANetworkSource.h */,
+				C96993041106B02200BEEC08 /* LBANetworkSource.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -122,7 +134,8 @@
 				8D1107310486CEB800E47090 /* Alberti-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
-				C90373D311061C3900E60DD1 /* CollectWindow.xib */,
+				C90373D311061C3900E60DD1 /* LBACollectWindow.xib */,
+				C969930B1106BC1900BEEC08 /* LBAFileSourceSettings.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -181,7 +194,8 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				C90373D411061C3900E60DD1 /* CollectWindow.xib in Resources */,
+				C90373D411061C3900E60DD1 /* LBACollectWindow.xib in Resources */,
+				C969930C1106BC1900BEEC08 /* LBAFileSourceSettings.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +211,8 @@
 				C969923C110031BD00BEEC08 /* LBASource.m in Sources */,
 				C969923F1100356A00BEEC08 /* LBAData.m in Sources */,
 				C9699296110573C200BEEC08 /* LBACollectWindowController.m in Sources */,
+				C96993021106AFF000BEEC08 /* LBAFileSource.m in Sources */,
+				C96993051106B02200BEEC08 /* LBANetworkSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,12 +235,20 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		C90373D311061C3900E60DD1 /* CollectWindow.xib */ = {
+		C90373D311061C3900E60DD1 /* LBACollectWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C969922E1100223200BEEC08 /* English */,
 			);
-			name = CollectWindow.xib;
+			name = LBACollectWindow.xib;
+			sourceTree = "<group>";
+		};
+		C969930B1106BC1900BEEC08 /* LBAFileSourceSettings.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C96993091106BC0D00BEEC08 /* English */,
+			);
+			name = LBAFileSourceSettings.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
