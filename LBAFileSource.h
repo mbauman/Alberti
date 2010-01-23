@@ -28,7 +28,9 @@
 #import "LBASource.h"
 
 @interface LBAFileSource : LBASource {
-
+	NSArray *sourceFiles;
 }
+
+@property (retain) NSArray *sourceFiles;
 
 @end

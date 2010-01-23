@@ -34,12 +34,17 @@
 
 	IBOutlet NSPopUpButton *dataSourcePopUpButton;
 	IBOutlet NSToolbarItem *startCollectingToolbarItem;
+	
+	IBOutlet NSPanel *settingsPanel;
 }
 
 @property (retain) LBASource *dataSource;
 @property (retain) NSMutableArray *collectedData;
+@property (assign) IBOutlet NSPanel *settingsPanel;
 
 - (IBAction) dataSourceChanged:(id)sender;
 - (IBAction) openDataSourceSettings:(id)sender;
 - (IBAction) startCollecting:(id)sender;
+
+- (IBAction) closeSettingsPanel:(id)sender;
 @end

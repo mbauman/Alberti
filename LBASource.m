@@ -49,4 +49,9 @@
 	endian = value;
 }
 
+- (void) collect:(id)delegate {
+	/* Subclasses must override this method */
+	NSAssert(0,@"This method must be implemented by the subclass");
+}
+
 @end

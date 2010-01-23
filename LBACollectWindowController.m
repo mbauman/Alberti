@@ -25,16 +25,15 @@
 //
 
 #import "LBACollectWindowController.h"
-
+#import "LBAFileSource.h"
 
 @implementation LBACollectWindowController
 
-@synthesize dataSource, collectedData;
+@synthesize dataSource, collectedData, settingsPanel;
 
-/*
 - (void)windowDidLoad {
+	self.collectedData = [NSMutableArray array];
 }
-*/
 
 - (NSString *) windowNibName {
 	return @"LBACollectWindow";
@@ -44,18 +43,35 @@
 	
 }
 
+#pragma mark -
+#pragma mark Source Settings
 - (IBAction) openDataSourceSettings:(id)sender {
-	
+	[NSBundle loadNibNamed: @"LBAFileSourceSettings" owner: self];
+	[NSApp beginSheet: self.settingsPanel
+	   modalForWindow: self.window
+		modalDelegate: self
+	   didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
+		  contextInfo: nil];
 }
+- (IBAction) closeSettingsPanel:(id)sender {
+	[NSApp endSheet:self.settingsPanel];
+}
+- (void) didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)rc contextInfo:(void *)ctx
+{
+    [sheet orderOut:self];
+}
+
+#pragma mark -
+#pragma mark Collection
 - (IBAction) startCollecting:(id)sender {
-	
+	self.dataSource = [[[LBAFileSource alloc] init] autorelease];
+	[self.dataSource collect:self.collectedData];
 }
 
 
-/*
 - (void) dealloc {	
+	[collectedData release];
 	[super dealloc];
 }
-*/
 
 @end
