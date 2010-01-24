@@ -33,4 +33,6 @@
 
 @property (retain) NSArray *sourceFiles;
 
+- (id) initWithURLs:(NSArray *)URLs;
+
 @end

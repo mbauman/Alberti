@@ -25,18 +25,23 @@
 //
 
 #import "LBAFileSource.h"
+#import "LBAData.h"
 
 @implementation LBAFileSource
 
 @synthesize sourceFiles;
 
 - (id) init {
-	if (self = [super init]) {
-		/* Ask the user for the source files */
-		NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-		[openPanel setAllowsMultipleSelection:YES];
-		[openPanel runModal];
-		self.sourceFiles = [openPanel URLs];			
+	/* Ask the user for the source files */
+	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+	[openPanel setAllowsMultipleSelection:YES];
+	[openPanel runModal];
+	return [self initWithURLs:[openPanel URLs]];
+}
+
+- (id) initWithURLs:(NSArray *)URLs {
+	if ((self = [super init])) {
+		self.sourceFiles = URLs;
 	}
 	return self;
 }
@@ -44,9 +49,7 @@
 - (void) collect:(NSMutableArray *)collectedData {
 	/* Iterate through the files and create LBADatas */
 	for (NSURL *file in self.sourceFiles) {
-		if (self.delimiter == LBA_DELIMIT_BY_PACKET_OR_FILE) {
-			[collectedData addObject:[NSData dataWithContentsOfURL:file]];			
-		}
+		[collectedData addObject:[LBAData dataWithURL:file]];			
 	}
 }
 

@@ -32,6 +32,7 @@
 	NSDate   *time;
 	NSString *source;
 	NSString *description;
+	NSUInteger size;
 }
 
 @property (copy) NSData *data;
@@ -39,5 +40,9 @@
 
 @property (copy) NSString *source;
 @property (copy) NSString *description;
+
+@property NSUInteger size;
+
++ (LBAData *) dataWithURL:(NSURL *)url;
 
 @end

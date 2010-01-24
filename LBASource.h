@@ -52,6 +52,6 @@ enum LBA_DELIMITER {
 @property int internalDelimitDataOffset;
 @property int internalDelimitDataBytes;
 
-- (void) collect:(NSMutableArray *)collectedData;
+- (void) collect:(NSArray *)collectedData;
 
 @end

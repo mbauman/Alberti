@@ -29,6 +29,21 @@
 
 @implementation LBAData
 
-@synthesize data, time, source, description;
+@synthesize data, time, source, size, description;
+
++ (LBAData *) dataWithURL:(NSURL *)url {
+	return [[[LBAData alloc] initWithURL:url] autorelease];
+}
+
+- (id) initWithURL:(NSURL *)url {
+	if ((self = [super init])) {
+		self.data = [NSData dataWithContentsOfURL:url];
+		self.time = [NSDate date];
+		self.source = [url description];
+		self.size = [self.data length];
+		self.description = @"";
+	}
+	return self;
+}
 
 @end
