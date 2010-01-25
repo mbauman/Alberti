@@ -31,6 +31,19 @@
 
 @synthesize rawData;
 
+- (NSArray *) rawDataArray {
+	if (!self.rawData) return nil;
+	return [NSArray arrayWithObject:self.rawData];
+}
+
+- (void) setRawDataArray:(NSArray *)newArray {
+	[self willChangeValueForKey:@"rawData"];
+	self.rawData = [newArray lastObject];
+	[self didChangeValueForKey:@"rawData"];
+	
+	[self setNeedsDisplayInRect:[self visibleRect]];	
+}
+
 + (void) initialize {
 	[self exposeBinding:@"rawData"];
 }
@@ -49,7 +62,6 @@
 	NSRectFill([self bounds]);
 
 	if (rawData) {
-		NSLog(@"HOT SHIT");
 		NSString *desc = [rawData.data description];
 		NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [NSColor blackColor], NSForegroundColorAttributeName, [NSFont systemFontOfSize:12], NSFontAttributeName, nil];
 		NSSize descSize = [desc sizeWithAttributes:textAttributes];
@@ -57,6 +69,10 @@
 		NSPoint namesTextPoint = NSMakePoint(midPoint.x - descSize.width - 2, midPoint.y - (descSize.height / 2));
 		[desc drawAtPoint:namesTextPoint withAttributes:textAttributes];
 	}
+}
+
+- (BOOL) isFlipped {
+	return YES;
 }
 
 - (void)dealloc {

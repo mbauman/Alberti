@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -881,6 +881,14 @@
 					</object>
 					<int key="connectionID">104</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">dataView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="838731257"/>
+					</object>
+					<int key="connectionID">105</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1332,7 +1340,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">104</int>
+			<int key="maxID">105</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1363,6 +1371,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>collectedDataController</string>
 							<string>dataSourcePopUpButton</string>
+							<string>dataView</string>
 							<string>settingsPanel</string>
 							<string>startCollectingToolbarItem</string>
 						</object>
@@ -1370,6 +1379,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSArrayController</string>
 							<string>NSPopUpButton</string>
+							<string>LBADataView</string>
 							<string>NSPanel</string>
 							<string>NSToolbarItem</string>
 						</object>

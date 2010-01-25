@@ -32,5 +32,6 @@
 }
 
 @property (retain) LBAData *rawData;
+@property (copy) NSArray *rawDataArray;
 
 @end

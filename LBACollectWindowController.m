@@ -34,7 +34,7 @@
 - (void)awakeFromNib {
 	[super awakeFromNib];
 	
-	[dataView bind:@"rawData" toObject:collectedDataController withKeyPath:@"selection" options:nil];
+	[dataView bind:@"rawDataArray" toObject:collectedDataController withKeyPath:@"selectedObjects" options:nil];
 }
 
 - (void)windowDidLoad {
