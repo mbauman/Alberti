@@ -8,9 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-
+@class LBAData;
 @interface LBADataView : NSView {
-
+	LBAData *data;
 }
+
+@property (retain) LBAData *data;
 
 @end

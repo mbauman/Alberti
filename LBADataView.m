@@ -11,6 +11,12 @@
 
 @implementation LBADataView
 
+@synthesize data;
+
++ (void) initialize {
+	[self exposeBinding:@"data"];
+}
+
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -21,6 +27,8 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
     // Drawing code here.
+	[[NSColor whiteColor] set];
+	NSRectFill([self bounds]);
 }
 
 @end
