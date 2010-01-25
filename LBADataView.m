@@ -31,21 +31,20 @@
 
 @synthesize rawData;
 
+/* The rawDataArray is bound to the Array Controller's selection. I have little
+ * use for an array -- just convert it directly to the object (and back) */
 - (NSArray *) rawDataArray {
 	if (!self.rawData) return nil;
 	return [NSArray arrayWithObject:self.rawData];
 }
 
 - (void) setRawDataArray:(NSArray *)newArray {
-	[self willChangeValueForKey:@"rawData"];
 	self.rawData = [newArray lastObject];
-	[self didChangeValueForKey:@"rawData"];
-	
 	[self setNeedsDisplayInRect:[self visibleRect]];	
 }
 
 + (void) initialize {
-	[self exposeBinding:@"rawData"];
+	[self exposeBinding:@"rawDataArray"];
 }
 
 - (id)initWithFrame:(NSRect)frame {
