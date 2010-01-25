@@ -56,8 +56,7 @@
 - (IBAction) closeSettingsPanel:(id)sender {
 	[NSApp endSheet:self.settingsPanel];
 }
-- (void) didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)rc contextInfo:(void *)ctx
-{
+- (void) didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)rc contextInfo:(void *)ctx {
     [sheet orderOut:self];
 }
 
@@ -65,7 +64,7 @@
 #pragma mark Collection
 - (IBAction) startCollecting:(id)sender {
 	self.dataSource = [[[LBAFileSource alloc] init] autorelease];
-	[self.dataSource collect:self.collectedData];
+	[self.dataSource collect:[self mutableArrayValueForKey:@"collectedData"]];
 }
 
 
