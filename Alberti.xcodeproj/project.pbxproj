@@ -19,6 +19,8 @@
 		C96993021106AFF000BEEC08 /* LBAFileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C96993011106AFF000BEEC08 /* LBAFileSource.m */; };
 		C96993051106B02200BEEC08 /* LBANetworkSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C96993041106B02200BEEC08 /* LBANetworkSource.m */; };
 		C969930C1106BC1900BEEC08 /* LBAFileSourceSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C969930B1106BC1900BEEC08 /* LBAFileSourceSettings.xib */; };
+		C96994EF110D24E900BEEC08 /* LBAParserToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */; };
+		C96994FE110D337C00BEEC08 /* LBADataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96994FD110D337C00BEEC08 /* LBADataView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,10 @@
 		C96993031106B02200BEEC08 /* LBANetworkSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBANetworkSource.h; sourceTree = "<group>"; };
 		C96993041106B02200BEEC08 /* LBANetworkSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBANetworkSource.m; sourceTree = "<group>"; };
 		C96993091106BC0D00BEEC08 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/LBAFileSourceSettings.xib; sourceTree = "<group>"; };
+		C96994ED110D24E900BEEC08 /* LBAParserToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAParserToolbar.h; sourceTree = "<group>"; };
+		C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAParserToolbar.m; sourceTree = "<group>"; };
+		C96994FC110D337C00BEEC08 /* LBADataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBADataView.h; sourceTree = "<group>"; };
+		C96994FD110D337C00BEEC08 /* LBADataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBADataView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,19 +70,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C96994F3110D2D4E00BEEC08 /* Model */,
+				C96994F2110D2D3900BEEC08 /* Controllers */,
+				C96994EC110D249500BEEC08 /* View */,
 				256AC3D80F4B6AC300CF3369 /* AlbertiAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* AlbertiAppDelegate.m */,
-				C969923D1100356A00BEEC08 /* LBAData.h */,
-				C969923E1100356A00BEEC08 /* LBAData.m */,
-				C9699294110573C200BEEC08 /* LBACollectWindowController.h */,
-				C9699295110573C200BEEC08 /* LBACollectWindowController.m */,
-				C90373D61106694200E60DD1 /* LBAEndian.h */,
-				C969923A110031BD00BEEC08 /* LBASource.h */,
-				C969923B110031BD00BEEC08 /* LBASource.m */,
-				C96993001106AFF000BEEC08 /* LBAFileSource.h */,
-				C96993011106AFF000BEEC08 /* LBAFileSource.m */,
-				C96993031106B02200BEEC08 /* LBANetworkSource.h */,
-				C96993041106B02200BEEC08 /* LBANetworkSource.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -149,6 +147,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C96994EC110D249500BEEC08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C96994ED110D24E900BEEC08 /* LBAParserToolbar.h */,
+				C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */,
+				C96994FC110D337C00BEEC08 /* LBADataView.h */,
+				C96994FD110D337C00BEEC08 /* LBADataView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C96994F2110D2D3900BEEC08 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9699294110573C200BEEC08 /* LBACollectWindowController.h */,
+				C9699295110573C200BEEC08 /* LBACollectWindowController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C96994F3110D2D4E00BEEC08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C969923D1100356A00BEEC08 /* LBAData.h */,
+				C969923E1100356A00BEEC08 /* LBAData.m */,
+				C90373D61106694200E60DD1 /* LBAEndian.h */,
+				C969923A110031BD00BEEC08 /* LBASource.h */,
+				C969923B110031BD00BEEC08 /* LBASource.m */,
+				C96993001106AFF000BEEC08 /* LBAFileSource.h */,
+				C96993011106AFF000BEEC08 /* LBAFileSource.m */,
+				C96993031106B02200BEEC08 /* LBANetworkSource.h */,
+				C96993041106B02200BEEC08 /* LBANetworkSource.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,6 +247,8 @@
 				C9699296110573C200BEEC08 /* LBACollectWindowController.m in Sources */,
 				C96993021106AFF000BEEC08 /* LBAFileSource.m in Sources */,
 				C96993051106B02200BEEC08 /* LBANetworkSource.m in Sources */,
+				C96994EF110D24E900BEEC08 /* LBAParserToolbar.m in Sources */,
+				C96994FE110D337C00BEEC08 /* LBADataView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
