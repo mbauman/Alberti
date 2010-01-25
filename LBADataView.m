@@ -25,14 +25,14 @@
 //
 
 #import "LBADataView.h"
-
+#import "LBAData.h"
 
 @implementation LBADataView
 
-@synthesize data;
+@synthesize rawData;
 
 + (void) initialize {
-	[self exposeBinding:@"data"];
+	[self exposeBinding:@"rawData"];
 }
 
 - (id)initWithFrame:(NSRect)frame {
@@ -47,6 +47,21 @@
     // Drawing code here.
 	[[NSColor whiteColor] set];
 	NSRectFill([self bounds]);
+
+	if (rawData) {
+		NSLog(@"HOT SHIT");
+		NSString *desc = [rawData.data description];
+		NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [NSColor blackColor], NSForegroundColorAttributeName, [NSFont systemFontOfSize:12], NSFontAttributeName, nil];
+		NSSize descSize = [desc sizeWithAttributes:textAttributes];
+		NSPoint midPoint = NSMakePoint(NSMidX([self bounds]), NSMidY([self bounds]));
+		NSPoint namesTextPoint = NSMakePoint(midPoint.x - descSize.width - 2, midPoint.y - (descSize.height / 2));
+		[desc drawAtPoint:namesTextPoint withAttributes:textAttributes];
+	}
+}
+
+- (void)dealloc {
+	[rawData release];
+	[super dealloc];
 }
 
 @end

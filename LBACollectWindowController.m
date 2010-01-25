@@ -29,7 +29,13 @@
 
 @implementation LBACollectWindowController
 
-@synthesize dataSource, collectedData, settingsPanel;
+@synthesize dataSource, collectedData;
+
+- (void)awakeFromNib {
+	[super awakeFromNib];
+	
+	[dataView bind:@"rawData" toObject:collectedDataController withKeyPath:@"selection" options:nil];
+}
 
 - (void)windowDidLoad {
 	self.collectedData = [NSMutableArray array];
@@ -47,14 +53,14 @@
 #pragma mark Source Settings
 - (IBAction) openDataSourceSettings:(id)sender {
 	[NSBundle loadNibNamed: @"LBAFileSourceSettings" owner: self];
-	[NSApp beginSheet: self.settingsPanel
+	[NSApp beginSheet: settingsPanel
 	   modalForWindow: self.window
 		modalDelegate: self
 	   didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
 		  contextInfo: nil];
 }
 - (IBAction) closeSettingsPanel:(id)sender {
-	[NSApp endSheet:self.settingsPanel];
+	[NSApp endSheet:settingsPanel];
 }
 - (void) didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)rc contextInfo:(void *)ctx {
     [sheet orderOut:self];

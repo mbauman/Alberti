@@ -28,9 +28,9 @@
 
 @class LBAData;
 @interface LBADataView : NSView {
-	LBAData *data;
+	LBAData *rawData;
 }
 
-@property (retain) LBAData *data;
+@property (retain) LBAData *rawData;
 
 @end
