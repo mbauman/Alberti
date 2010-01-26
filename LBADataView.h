@@ -29,7 +29,6 @@
 @class LBAData;
 @interface LBADataView : NSView {
 	LBAData *rawData;
-	NSPointerArray *rawHexStrings;
 	NSDictionary *rawHexTextAttributes;
 	NSDictionary *offsetTextAttributes;
 	NSDictionary *parsedTextAttributes;
@@ -41,7 +40,5 @@
 @property (nonatomic,copy) NSDictionary *rawHexTextAttributes;
 @property (nonatomic,copy) NSDictionary *offsetTextAttributes;
 @property (nonatomic,copy) NSDictionary *parsedTextAttributes;
-
-@property (nonatomic,retain) NSPointerArray *rawHexStrings;
 
 @end

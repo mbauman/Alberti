@@ -29,7 +29,7 @@
 
 @implementation LBADataView
 
-@synthesize rawData, rawHexStrings;
+@synthesize rawData;
 @synthesize rawHexTextAttributes, offsetTextAttributes, parsedTextAttributes;
 
 + (void) initialize {
@@ -46,9 +46,6 @@
 									 [NSFont userFixedPitchFontOfSize:12.0f], NSFontAttributeName, nil];
 		self.offsetTextAttributes = self.rawHexTextAttributes;
 		self.parsedTextAttributes = self.rawHexTextAttributes;
-		self.rawHexStrings = [[NSPointerArray alloc] initWithPointerFunctions:
-							  [NSPointerFunctions pointerFunctionsWithOptions: 
-							   NSPointerFunctionsStrongMemory | NSPointerFunctionsObjectPersonality]];
     }
     return self;
 }
@@ -58,7 +55,6 @@
 	[rawHexTextAttributes release];
 	[offsetTextAttributes release];
 	[parsedTextAttributes release];
-	[rawHexStrings release];
 	[super dealloc];
 }
 
@@ -85,9 +81,10 @@
 
 - (NSRect) rectAtByte:(NSUInteger)offset {
 	NSRect rect;
+	int perLine = [self bytesPerLine];
 	rect.size = [self byteStringSize];
-	rect.origin.y = [self lineHeight] * (offset / (int)[self bytesPerLine] + 1);
-	rect.origin.x = rect.size.width * (offset % (int)[self bytesPerLine]);
+	rect.origin.y = [self lineHeight] * (offset / perLine + 1);
+	rect.origin.x = 40 + rect.size.width * (offset % perLine) + rect.size.width/2 * (int)((offset % perLine)/2);
 	return rect;
 }
 
@@ -115,9 +112,6 @@
 	self.rawData = [newArray lastObject];
 	int byteCount = [self.rawData.data length];
 	
-	[self.rawHexStrings setCount:0];
-	[self.rawHexStrings setCount:byteCount];
-	
 	NSSize size = [self.superview visibleRect].size;
 	size.width += 2; /* Bug? */
 	size.height = MAX(size.height, [self lineHeight] * (byteCount / [self bytesPerLine] + 1));
@@ -135,11 +129,7 @@
 	if (rawData) {
 		NSRange bytesToDraw = [self bytesInFrame:dirtyRect];
 		for (int byte = bytesToDraw.location; byte <= bytesToDraw.location + bytesToDraw.length; byte++) {
-			NSString *byteStr = [self.rawHexStrings pointerAtIndex:byte];
-			if (!byteStr) {
-				byteStr = [NSString stringWithFormat:@"%hh02x",((char *)[self.rawData.data bytes])[byte]];
-				[self.rawHexStrings insertPointer:byteStr atIndex:byte];
-			}
+			NSString *byteStr = [NSString stringWithFormat:@"%hh02x",((char *)[self.rawData.data bytes])[byte]];
 			[byteStr drawInRect:[self rectAtByte:byte] withAttributes:rawHexTextAttributes];
 		}
 	}
