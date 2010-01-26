@@ -29,7 +29,80 @@
 
 @implementation LBADataView
 
-@synthesize rawData;
+@synthesize rawData, rawHexStrings;
+@synthesize rawHexTextAttributes, offsetTextAttributes, parsedTextAttributes;
+
++ (void) initialize {
+	[self exposeBinding:@"rawDataArray"];
+}
+
+
+- (id)initWithFrame:(NSRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code here.
+		self.rawHexTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+									 [NSColor blackColor], NSForegroundColorAttributeName, 
+									 [NSFont userFixedPitchFontOfSize:12.0f], NSFontAttributeName, nil];
+		self.offsetTextAttributes = self.rawHexTextAttributes;
+		self.parsedTextAttributes = self.rawHexTextAttributes;
+		self.rawHexStrings = [[NSPointerArray alloc] initWithPointerFunctions:
+							  [NSPointerFunctions pointerFunctionsWithOptions: 
+							   NSPointerFunctionsStrongMemory | NSPointerFunctionsObjectPersonality]];
+    }
+    return self;
+}
+
+- (void)dealloc {
+	[rawData release];
+	[rawHexTextAttributes release];
+	[offsetTextAttributes release];
+	[parsedTextAttributes release];
+	[rawHexStrings release];
+	[super dealloc];
+}
+
+- (NSString *) description {
+    return [NSString stringWithFormat: @"<%@ 0x%x>", NSStringFromClass(isa), (void *)self];
+}
+
+- (NSSize) byteStringSize {
+	NSSize size = [@"00" sizeWithAttributes:self.rawHexTextAttributes];
+	return size;
+}
+
+- (CGFloat) lineHeight {
+	return [self byteStringSize].height + 2.0f;
+}
+
+- (NSUInteger) lineNumberAtPoint:(NSPoint)point {
+	return MAX(0,((int)point.y / (int)[self lineHeight]) - 1);
+}
+
+- (NSUInteger) bytesPerLine {
+	return 16;
+}
+
+- (NSRect) rectAtByte:(NSUInteger)offset {
+	NSRect rect;
+	rect.size = [self byteStringSize];
+	rect.origin.y = [self lineHeight] * (offset / (int)[self bytesPerLine] + 1);
+	rect.origin.x = rect.size.width * (offset % (int)[self bytesPerLine]);
+	return rect;
+}
+
+- (NSRange) bytesInFrame:(NSRect)frame {
+	NSRange range;
+	
+	range.location = [self lineNumberAtPoint:frame.origin]*[self bytesPerLine];
+	range.length = (frame.size.height / [self lineHeight] + 1)*[self bytesPerLine];
+	
+	if (range.location + range.length > [self.rawData.data length]) {
+		range.length = MAX(0,[self.rawData.data length] - range.location);
+	}
+	
+	return range;
+}
 
 /* The rawDataArray is bound to the Array Controller's selection. I have little
  * use for an array -- just convert it directly to the object (and back) */
@@ -40,33 +113,35 @@
 
 - (void) setRawDataArray:(NSArray *)newArray {
 	self.rawData = [newArray lastObject];
+	int byteCount = [self.rawData.data length];
+	
+	[self.rawHexStrings setCount:0];
+	[self.rawHexStrings setCount:byteCount];
+	
+	NSSize size = [self.superview visibleRect].size;
+	size.width += 2; /* Bug? */
+	size.height = MAX(size.height, [self lineHeight] * (byteCount / [self bytesPerLine] + 1));
+	[self setFrameSize:size];
+	
 	[self setNeedsDisplayInRect:[self visibleRect]];	
 }
 
-+ (void) initialize {
-	[self exposeBinding:@"rawDataArray"];
-}
-
-- (id)initWithFrame:(NSRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
-}
 
 - (void)drawRect:(NSRect)dirtyRect {
     // Drawing code here.
 	[[NSColor whiteColor] set];
-	NSRectFill([self bounds]);
+	NSRectFill(dirtyRect);
 
 	if (rawData) {
-		NSString *desc = [rawData.data description];
-		NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [NSColor blackColor], NSForegroundColorAttributeName, [NSFont systemFontOfSize:12], NSFontAttributeName, nil];
-		NSSize descSize = [desc sizeWithAttributes:textAttributes];
-		NSPoint midPoint = NSMakePoint(NSMidX([self bounds]), NSMidY([self bounds]));
-		NSPoint namesTextPoint = NSMakePoint(midPoint.x - descSize.width - 2, midPoint.y - (descSize.height / 2));
-		[desc drawAtPoint:namesTextPoint withAttributes:textAttributes];
+		NSRange bytesToDraw = [self bytesInFrame:dirtyRect];
+		for (int byte = bytesToDraw.location; byte <= bytesToDraw.location + bytesToDraw.length; byte++) {
+			NSString *byteStr = [self.rawHexStrings pointerAtIndex:byte];
+			if (!byteStr) {
+				byteStr = [NSString stringWithFormat:@"%hh02x",((char *)[self.rawData.data bytes])[byte]];
+				[self.rawHexStrings insertPointer:byteStr atIndex:byte];
+			}
+			[byteStr drawInRect:[self rectAtByte:byte] withAttributes:rawHexTextAttributes];
+		}
 	}
 }
 
@@ -74,9 +149,5 @@
 	return YES;
 }
 
-- (void)dealloc {
-	[rawData release];
-	[super dealloc];
-}
 
 @end
