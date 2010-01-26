@@ -114,7 +114,7 @@
 	
 	NSSize size = [self.superview visibleRect].size;
 	size.width += 2; /* Bug? */
-	size.height = MAX(size.height, [self lineHeight] * (byteCount / [self bytesPerLine] + 1));
+	size.height = MAX(size.height, [self lineHeight] * (byteCount / [self bytesPerLine] + 2));
 	[self setFrameSize:size];
 	
 	[self setNeedsDisplayInRect:[self visibleRect]];	
