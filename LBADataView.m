@@ -27,6 +27,7 @@
 #import "LBADataView.h"
 #import "LBAData.h"
 
+
 @implementation LBADataView
 
 @synthesize rawData;
@@ -46,6 +47,10 @@
 									 [NSFont userFixedPitchFontOfSize:12.0f], NSFontAttributeName, nil];
 		self.offsetTextAttributes = self.rawHexTextAttributes;
 		self.parsedTextAttributes = self.rawHexTextAttributes;
+		
+		byteStringSize = [@"00" sizeWithAttributes:self.rawHexTextAttributes];
+		lineHeight = byteStringSize.height + 2.0f;
+		bytesPerLine = 16;
     }
     return self;
 }
@@ -62,40 +67,26 @@
     return [NSString stringWithFormat: @"<%@ 0x%x>", NSStringFromClass(isa), (void *)self];
 }
 
-- (NSSize) byteStringSize {
-	NSSize size = [@"00" sizeWithAttributes:self.rawHexTextAttributes];
-	return size;
-}
-
-- (CGFloat) lineHeight {
-	return [self byteStringSize].height + 2.0f;
-}
-
 - (NSUInteger) lineNumberAtPoint:(NSPoint)point {
-	return MAX(0,((int)point.y / (int)[self lineHeight]) - 1);
-}
-
-- (NSUInteger) bytesPerLine {
-	return 16;
+	return ((int)point.y) / lineHeight;
 }
 
 - (NSRect) rectAtByte:(NSUInteger)offset {
 	NSRect rect;
-	int perLine = [self bytesPerLine];
-	rect.size = [self byteStringSize];
-	rect.origin.y = [self lineHeight] * (offset / perLine + 1);
-	rect.origin.x = 40 + rect.size.width * (offset % perLine) + rect.size.width/2 * (int)((offset % perLine)/2);
+	rect.size = byteStringSize;
+	rect.origin.y = lineHeight * (offset / bytesPerLine);
+	rect.origin.x = 40 + rect.size.width * (offset % bytesPerLine) + rect.size.width/2 * (int)((offset % bytesPerLine)/2);
 	return rect;
 }
 
 - (NSRange) bytesInFrame:(NSRect)frame {
 	NSRange range;
 	
-	range.location = [self lineNumberAtPoint:frame.origin]*[self bytesPerLine];
-	range.length = (frame.size.height / [self lineHeight] + 1)*[self bytesPerLine];
+	range.location = [self lineNumberAtPoint:frame.origin]*bytesPerLine;
+	range.length = ((int)frame.size.height / lineHeight + 1) * bytesPerLine + 1;
 	
 	if (range.location + range.length > [self.rawData.data length]) {
-		range.length = MAX(0,[self.rawData.data length] - range.location);
+		range.length = MAX(0,[self.rawData.data length] - range.location - 1);
 	}
 	
 	return range;
@@ -114,7 +105,7 @@
 	
 	NSSize size = [self.superview visibleRect].size;
 	size.width += 2; /* Bug? */
-	size.height = MAX(size.height, [self lineHeight] * (byteCount / [self bytesPerLine] + 2));
+	size.height = MAX(size.height, lineHeight * (byteCount / bytesPerLine + 1));
 	[self setFrameSize:size];
 	
 	[self setNeedsDisplayInRect:[self visibleRect]];	
@@ -122,7 +113,6 @@
 
 
 - (void)drawRect:(NSRect)dirtyRect {
-    // Drawing code here.
 	[[NSColor whiteColor] set];
 	NSRectFill(dirtyRect);
 

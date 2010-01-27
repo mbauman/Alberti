@@ -32,6 +32,10 @@
 	NSDictionary *rawHexTextAttributes;
 	NSDictionary *offsetTextAttributes;
 	NSDictionary *parsedTextAttributes;
+	
+	NSSize byteStringSize;
+	CGFloat lineHeight;
+	NSUInteger bytesPerLine;
 }
 
 @property (nonatomic,retain) LBAData *rawData;
