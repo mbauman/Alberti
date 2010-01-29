@@ -24,12 +24,12 @@
 //  IN THE SOFTWARE.
 //
 
+#import <CHDataStructures/CHDataStructures.h>
 #import "LBAData.h"
-
 
 @implementation LBAData
 
-@synthesize data, time, source, size, description;
+@synthesize data, parsers, time, source, size, description;
 
 + (LBAData *) dataWithURL:(NSURL *)url {
 	return [[[LBAData alloc] initWithURL:url] autorelease];
@@ -38,6 +38,7 @@
 - (id) initWithURL:(NSURL *)url {
 	if ((self = [super init])) {
 		self.data = [NSData dataWithContentsOfURL:url];
+		self.parsers = [[CHAnderssonTree alloc] init];
 		self.time = [NSDate date];
 		self.source = [url description];
 		self.size = [self.data length];

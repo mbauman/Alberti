@@ -21,7 +21,54 @@
 		C969930C1106BC1900BEEC08 /* LBAFileSourceSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C969930B1106BC1900BEEC08 /* LBAFileSourceSettings.xib */; };
 		C96994EF110D24E900BEEC08 /* LBAParserToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */; };
 		C96994FE110D337C00BEEC08 /* LBADataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96994FD110D337C00BEEC08 /* LBADataView.m */; };
+		C986CA2D11128E3A004AAD58 /* CHDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
+		C986CA8311129497004AAD58 /* CHDataStructures.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
+		C986CAF011129BAD004AAD58 /* CHDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C986CA2311128E2B004AAD58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* CHDataStructures.framework */;
+			remoteInfo = Framework;
+		};
+		C986CA2511128E2B004AAD58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E473CB550E9346CB005CA997 /* CHDataStructures.octest */;
+			remoteInfo = "Unit Testing";
+		};
+		C986CA2711128E2B004AAD58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E44B59B40E95850F00F9DD1A /* Benchmarks */;
+			remoteInfo = Benchmarks;
+		};
+		C986CA7E111293B9004AAD58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* Framework */;
+			remoteInfo = Framework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C986CA86111294B5004AAD58 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C986CA8311129497004AAD58 /* CHDataStructures.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -53,6 +100,7 @@
 		C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAParserToolbar.m; sourceTree = "<group>"; };
 		C96994FC110D337C00BEEC08 /* LBADataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBADataView.h; sourceTree = "<group>"; };
 		C96994FD110D337C00BEEC08 /* LBADataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBADataView.m; sourceTree = "<group>"; };
+		C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CHDataStructures.xcodeproj; path = Frameworks/CHDataStructures/CHDataStructures.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +109,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				C986CA2D11128E3A004AAD58 /* CHDataStructures.framework in Frameworks */,
+				C986CAF011129BAD004AAD58 /* CHDataStructures.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +132,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -183,6 +234,16 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C986CA1711128E2B004AAD58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C986CA2411128E2B004AAD58 /* CHDataStructures.framework */,
+				C986CA2611128E2B004AAD58 /* CHDataStructures.octest */,
+				C986CA2811128E2B004AAD58 /* Benchmarks */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -193,10 +254,12 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				C986CA86111294B5004AAD58 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C986CA7F111293B9004AAD58 /* PBXTargetDependency */,
 			);
 			name = Alberti;
 			productInstallPath = "$(HOME)/Applications";
@@ -214,12 +277,42 @@
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Alberti */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C986CA1711128E2B004AAD58 /* Products */;
+					ProjectRef = C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Alberti */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C986CA2411128E2B004AAD58 /* CHDataStructures.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CHDataStructures.framework;
+			remoteRef = C986CA2311128E2B004AAD58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C986CA2611128E2B004AAD58 /* CHDataStructures.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CHDataStructures.octest;
+			remoteRef = C986CA2511128E2B004AAD58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C986CA2811128E2B004AAD58 /* Benchmarks */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Benchmarks;
+			remoteRef = C986CA2711128E2B004AAD58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
@@ -253,6 +346,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C986CA7F111293B9004AAD58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Framework;
+			targetProxy = C986CA7E111293B9004AAD58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -295,6 +396,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks/CHDataStructures/build/Debug\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -324,6 +429,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks/CHDataStructures/build/Debug\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Alberti_Prefix.pch;

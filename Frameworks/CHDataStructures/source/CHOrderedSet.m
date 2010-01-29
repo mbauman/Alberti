@@ -1,0 +1,156 @@
+/*
+ CHDataStructures.framework -- CHOrderedSet.h
+ 
+ Copyright (c) 2009, Quinn Taylor <http://homepage.mac.com/quinntaylor>
+ 
+ Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+ 
+ The software is  provided "as is", without warranty of any kind, including all implied warranties of merchantability and fitness. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+ */
+
+#import "CHOrderedSet.h"
+#import "CHAbstractCircularBufferCollection.h"
+
+@implementation CHOrderedSet
+
+- (id) init {
+	return [self initWithCapacity:0];
+}
+
+- (id) initWithCapacity:(NSUInteger)numItems {
+	if ((self = [super initWithCapacity:numItems]) == nil) return nil;
+	ordering = [[CHAbstractCircularBufferCollection alloc] init];
+	return self;
+}
+
+#pragma mark <NSFastEnumeration>
+
+#if OBJC_API_2
+- (NSUInteger) countByEnumeratingWithState:(NSFastEnumerationState*)state
+                                   objects:(id*)stackbuf
+                                     count:(NSUInteger)len
+{
+	return [ordering countByEnumeratingWithState:state objects:stackbuf count:len];
+}
+#endif
+
+#pragma mark Adding Objects
+
+- (void) addObject:(id)anObject {
+	if (anObject == nil)
+		CHNilArgumentException([self class], _cmd);
+	if (![self containsObject:anObject])
+		[ordering appendObject:anObject];
+	[super addObject:anObject];
+}
+
+- (void) exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2 {
+	[ordering exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+}
+
+- (void) insertObject:(id)anObject atIndex:(NSUInteger)index {
+	if (index > [self count])
+		CHIndexOutOfRangeException([self class], _cmd, index, [self count]);
+	if ([self containsObject:anObject])
+		[ordering removeObject:anObject];
+	[ordering insertObject:anObject atIndex:index];
+	[super addObject:anObject];
+}
+
+#pragma mark Querying Contents
+
+- (NSArray*) allObjects {
+	return [ordering allObjects];
+}
+
+- (id) firstObject {
+	return [ordering firstObject];
+}
+
+- (NSUInteger) hash {
+	return hashOfCountAndObjects([self count],
+	                             [self firstObject],
+	                             [self lastObject]);
+}
+
+- (NSUInteger) indexOfObject:(id)anObject {
+	return [ordering indexOfObject:anObject];
+}
+
+- (BOOL) isEqualToOrderedSet:(CHOrderedSet*)otherOrderedSet {
+	return collectionsAreEqual(self, otherOrderedSet);
+}
+
+- (id) lastObject {
+	return [ordering lastObject];
+}
+
+- (id) objectAtIndex:(NSUInteger)index {
+	return [ordering objectAtIndex:index];
+}
+
+- (NSEnumerator*) objectEnumerator {
+	return [ordering objectEnumerator];
+}
+
+- (NSArray*) objectsAtIndexes:(NSIndexSet*)indexes {
+	if (indexes == nil)
+		CHNilArgumentException([self class], _cmd);
+	if ([indexes count] == 0)
+		return [NSArray array];
+	if ([indexes lastIndex] >= [self count])
+		CHIndexOutOfRangeException([self class], _cmd, [indexes lastIndex], [self count]);
+	NSMutableArray* objects = [NSMutableArray arrayWithCapacity:[self count]];
+	NSUInteger index = [indexes firstIndex];
+	while (index != NSNotFound) {
+		[objects addObject:[self objectAtIndex:index]];
+		index = [indexes indexGreaterThanIndex:index];
+	}
+	return objects;
+}
+
+- (CHOrderedSet*) orderedSetWithObjectsAtIndexes:(NSIndexSet*)indexes {
+	if (indexes == nil)
+		CHNilArgumentException([self class], _cmd);
+	if ([indexes count] == 0)
+		return [[self class] set];
+	CHOrderedSet* newSet = [[self class] setWithCapacity:[indexes count]];
+	NSUInteger index = [indexes firstIndex];
+	while (index != NSNotFound) {
+		[newSet addObject:[ordering objectAtIndex:index]];
+		index = [indexes indexGreaterThanIndex:index];
+	}
+	return newSet;
+}
+
+#pragma mark Removing Objects
+
+- (void) removeAllObjects {
+	[super removeAllObjects];
+	[ordering removeAllObjects];
+}
+
+- (void) removeFirstObject {
+	[self removeObject:[ordering firstObject]];
+}
+
+- (void) removeLastObject {
+	[self removeObject:[ordering lastObject]];
+}
+
+- (void) removeObject:(id)anObject {
+	[super removeObject:anObject];
+	[ordering removeObject:anObject];
+}
+
+- (void) removeObjectAtIndex:(NSUInteger)index {
+	[super removeObject:[ordering objectAtIndex:index]];
+	[ordering removeObjectAtIndex:index];
+}
+
+- (void) removeObjectsAtIndexes:(NSIndexSet*)indexes {
+	[(NSMutableSet*)set minusSet:[NSSet setWithArray:[self objectsAtIndexes:indexes]]];
+	[ordering removeObjectsAtIndexes:indexes];
+}
+
+@end

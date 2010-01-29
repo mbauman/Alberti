@@ -26,9 +26,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class CHAbstractBinarySearchTree;
 
 @interface LBAData : NSObject {
 	NSData   *data;
+	CHAbstractBinarySearchTree *parsers;
 	NSDate   *time;
 	NSString *source;
 	NSString *description;
@@ -36,6 +38,7 @@
 }
 
 @property (copy) NSData *data;
+@property (retain) CHAbstractBinarySearchTree *parsers;
 @property (copy) NSDate *time;
 
 @property (copy) NSString *source;
