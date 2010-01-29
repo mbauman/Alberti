@@ -27,24 +27,29 @@
 #import <Cocoa/Cocoa.h>
 
 @class CHAbstractBinarySearchTree;
+@class LBAParser;
 
 @interface LBAData : NSObject {
 	NSData   *data;
-	CHAbstractBinarySearchTree *parsers;
 	NSDate   *time;
 	NSString *source;
 	NSString *description;
 	NSUInteger size;
+
+	LBAParser *defaultParser;
+	CHAbstractBinarySearchTree *parsers;
 }
 
 @property (copy) NSData *data;
-@property (retain) CHAbstractBinarySearchTree *parsers;
 @property (copy) NSDate *time;
 
 @property (copy) NSString *source;
 @property (copy) NSString *description;
 
 @property NSUInteger size;
+
+@property (retain) LBAParser *defaultParser;
+@property (retain) CHAbstractBinarySearchTree *parsers;
 
 + (LBAData *) dataWithURL:(NSURL *)url;
 

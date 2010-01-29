@@ -1,8 +1,8 @@
 //
-//  LBAData.m
+//  LBAParser.m
 //  Alberti
 //
-//  Created by Matt Bauman on 1/14/10.
+//  Created by Matt Bauman on 1/28/10.
 //  The MIT license: Copyright (c) 2010 Matt Bauman.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,28 +24,15 @@
 //  IN THE SOFTWARE.
 //
 
-#import <CHDataStructures/CHDataStructures.h>
-#import "LBAData.h"
+#import "LBAParser.h"
 
-@implementation LBAData
 
-@synthesize data, time, source, size, description;
-@synthesize defaultParser, parsers;
+@implementation LBAParser
 
-+ (LBAData *) dataWithURL:(NSURL *)url {
-	return [[[LBAData alloc] initWithURL:url] autorelease];
-}
+@synthesize startByte, byteCount;
 
-- (id) initWithURL:(NSURL *)url {
-	if ((self = [super init])) {
-		self.data = [NSData dataWithContentsOfURL:url];
-		self.parsers = [[CHAnderssonTree alloc] init];
-		self.time = [NSDate date];
-		self.source = [url description];
-		self.size = [self.data length];
-		self.description = @"";
-	}
-	return self;
+- (NSString *)parse:(LBAData *)data {
+	NSAssert(0,@"The 'parse' method must be overridden by a concrete subclass");
 }
 
 @end

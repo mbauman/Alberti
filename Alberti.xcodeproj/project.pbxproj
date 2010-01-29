@@ -224,17 +224,15 @@
 		C96994F3110D2D4E00BEEC08 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C90373D61106694200E60DD1 /* LBAEndian.h */,
 				C969923D1100356A00BEEC08 /* LBAData.h */,
 				C969923E1100356A00BEEC08 /* LBAData.m */,
-				C90373D61106694200E60DD1 /* LBAEndian.h */,
 				C969923A110031BD00BEEC08 /* LBASource.h */,
 				C969923B110031BD00BEEC08 /* LBASource.m */,
-				C96993001106AFF000BEEC08 /* LBAFileSource.h */,
-				C96993011106AFF000BEEC08 /* LBAFileSource.m */,
-				C96993031106B02200BEEC08 /* LBANetworkSource.h */,
-				C96993041106B02200BEEC08 /* LBANetworkSource.m */,
 				C986CB1811129F5D004AAD58 /* LBAParser.h */,
 				C986CB1911129F5D004AAD58 /* LBAParser.m */,
+				C986CB2C1112AE63004AAD58 /* Parsers */,
+				C986CB2B1112AE44004AAD58 /* Sources */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -247,6 +245,24 @@
 				C986CA2811128E2B004AAD58 /* Benchmarks */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C986CB2B1112AE44004AAD58 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C96993001106AFF000BEEC08 /* LBAFileSource.h */,
+				C96993011106AFF000BEEC08 /* LBAFileSource.m */,
+				C96993031106B02200BEEC08 /* LBANetworkSource.h */,
+				C96993041106B02200BEEC08 /* LBANetworkSource.m */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		C986CB2C1112AE63004AAD58 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Parsers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
