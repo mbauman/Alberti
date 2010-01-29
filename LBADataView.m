@@ -67,8 +67,16 @@
     return [NSString stringWithFormat: @"<%@ 0x%x>", NSStringFromClass(isa), (void *)self];
 }
 
+- (BOOL) isFlipped {
+	return YES;
+}
+
 - (NSUInteger) lineNumberAtPoint:(NSPoint)point {
 	return ((int)point.y) / lineHeight;
+}
+
+- (CGFloat) heightAtLineNumber:(NSUInteger)lineNumber {
+	return lineNumber * lineHeight;
 }
 
 - (NSRect) rectAtByte:(NSUInteger)offset {
@@ -123,10 +131,6 @@
 			[byteStr drawInRect:[self rectAtByte:byte] withAttributes:rawHexTextAttributes];
 		}
 	}
-}
-
-- (BOOL) isFlipped {
-	return YES;
 }
 
 
