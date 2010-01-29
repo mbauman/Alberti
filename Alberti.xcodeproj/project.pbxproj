@@ -24,6 +24,7 @@
 		C986CA2D11128E3A004AAD58 /* CHDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
 		C986CA8311129497004AAD58 /* CHDataStructures.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
 		C986CAF011129BAD004AAD58 /* CHDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
+		C986CB1A11129F5D004AAD58 /* LBAParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C986CB1911129F5D004AAD58 /* LBAParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		C96994FC110D337C00BEEC08 /* LBADataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBADataView.h; sourceTree = "<group>"; };
 		C96994FD110D337C00BEEC08 /* LBADataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBADataView.m; sourceTree = "<group>"; };
 		C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CHDataStructures.xcodeproj; path = Frameworks/CHDataStructures/CHDataStructures.xcodeproj; sourceTree = "<group>"; };
+		C986CB1811129F5D004AAD58 /* LBAParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAParser.h; sourceTree = "<group>"; };
+		C986CB1911129F5D004AAD58 /* LBAParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,8 @@
 				C96993011106AFF000BEEC08 /* LBAFileSource.m */,
 				C96993031106B02200BEEC08 /* LBANetworkSource.h */,
 				C96993041106B02200BEEC08 /* LBANetworkSource.m */,
+				C986CB1811129F5D004AAD58 /* LBAParser.h */,
+				C986CB1911129F5D004AAD58 /* LBAParser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				C96993051106B02200BEEC08 /* LBANetworkSource.m in Sources */,
 				C96994EF110D24E900BEEC08 /* LBAParserToolbar.m in Sources */,
 				C96994FE110D337C00BEEC08 /* LBADataView.m in Sources */,
+				C986CB1A11129F5D004AAD58 /* LBAParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
