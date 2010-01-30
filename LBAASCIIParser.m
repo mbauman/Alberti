@@ -24,8 +24,12 @@
 //  IN THE SOFTWARE.
 //
 
-#import "LBAASCIIParser.h"
 
+#import <Cocoa/Cocoa.h>
+#import "LBAParser.h"
+
+@interface LBAASCIIParser : LBAParser
+@end
 
 @implementation LBAASCIIParser
 
@@ -36,8 +40,8 @@
 + (NSString *)shortName {
 	return @"ASCII";
 }
-+ (NSColor *)colorWithAlpha:(CGFloat)alpha {
-	return [NSColor colorWithCalibratedRed:0.25 green:0.90 blue:0.50 alpha:alpha];
++ (NSColor *)color {
+	return [NSColor colorWithCalibratedRed:0.25 green:0.90 blue:0.50 alpha:1.0];
 }
 
 + (NSUInteger)nearestAllowedWidth:(NSUInteger)requestedWidth {
