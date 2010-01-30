@@ -26,6 +26,7 @@
 		C986CA8311129497004AAD58 /* CHDataStructures.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
 		C986CAF011129BAD004AAD58 /* CHDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
 		C986CB1A11129F5D004AAD58 /* LBAParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C986CB1911129F5D004AAD58 /* LBAParser.m */; };
+		C986CB941113FD6A004AAD58 /* LBAParserControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C986CB931113FD6A004AAD58 /* LBAParserControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,8 @@
 		C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CHDataStructures.xcodeproj; path = Frameworks/CHDataStructures/CHDataStructures.xcodeproj; sourceTree = "<group>"; };
 		C986CB1811129F5D004AAD58 /* LBAParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAParser.h; sourceTree = "<group>"; };
 		C986CB1911129F5D004AAD58 /* LBAParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAParser.m; sourceTree = "<group>"; };
+		C986CB921113FD6A004AAD58 /* LBAParserControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAParserControl.h; sourceTree = "<group>"; };
+		C986CB931113FD6A004AAD58 /* LBAParserControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAParserControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,10 +210,12 @@
 		C96994EC110D249500BEEC08 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C96994ED110D24E900BEEC08 /* LBAParserToolbar.h */,
-				C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */,
 				C96994FC110D337C00BEEC08 /* LBADataView.h */,
 				C96994FD110D337C00BEEC08 /* LBADataView.m */,
+				C96994ED110D24E900BEEC08 /* LBAParserToolbar.h */,
+				C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */,
+				C986CB921113FD6A004AAD58 /* LBAParserControl.h */,
+				C986CB931113FD6A004AAD58 /* LBAParserControl.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				C96994FE110D337C00BEEC08 /* LBADataView.m in Sources */,
 				C986CB1A11129F5D004AAD58 /* LBAParser.m in Sources */,
 				C9671C511113AA8600C54382 /* LBAASCIIParser.m in Sources */,
+				C986CB941113FD6A004AAD58 /* LBAParserControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

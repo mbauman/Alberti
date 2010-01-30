@@ -26,13 +26,45 @@
 
 #import "LBAParser.h"
 
+static NSMutableArray *registeredParsers = nil;
 
 @implementation LBAParser
 
-@synthesize startByte, byteCount;
+@synthesize offset, width;
 
+- (void)setWidth:(NSUInteger)requestedWidth {
+	width = [[self class] nearestAllowedWidth:requestedWidth];
+}
+
+#pragma mark -
+#pragma mark Subclass Registry
+
++ (void) registerParser:(Class)parser {
+	if (registeredParsers == nil) {
+		registeredParsers = [[NSMutableArray alloc] init];
+	}
+	[registeredParsers addObject:parser];
+}
+
++ (NSArray *) registeredParsers {
+	return [NSArray arrayWithArray:registeredParsers];
+}
+
+#pragma mark -
+#pragma mark Methods to Override
+
++ (NSString *) shortName {
+	/* Note that this base implementation is not a _short_ name. Override it! */
+	return NSStringFromClass(self);
+}
++ (NSColor *) colorWithAlpha:(CGFloat)alpha {
+	NSAssert(0,@"The 'colorWithAlpha:' method must be overridden by a concrete subclass");
+}
++ (NSUInteger) nearestAllowedWidth:(NSUInteger)requestedWidth {
+	NSAssert(0,@"The 'allowedWidths' method must be overridden by a concrete subclass");
+}
 - (NSString *)parse:(LBAData *)data {
-	NSAssert(0,@"The 'parse' method must be overridden by a concrete subclass");
+	NSAssert(0,@"The 'parse:' method must be overridden by a concrete subclass");
 }
 
 @end

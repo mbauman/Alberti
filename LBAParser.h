@@ -29,13 +29,19 @@
 @class LBAData;
 
 @interface LBAParser : NSObject {
-	NSUInteger startByte;
-	NSUInteger byteCount;
+	NSUInteger offset;
+	NSUInteger width;
 }
 
-@property NSUInteger startByte;
-@property NSUInteger byteCount;
+@property NSUInteger offset;
+@property NSUInteger width;
 
-- (NSString *)parse:(LBAData *)data;
++ (void) registerParser:(Class)parser;
++ (NSArray *) registeredParsers;
+
++ (NSString *) shortName;
++ (NSColor *) colorWithAlpha:(CGFloat)alpha;
++ (NSUInteger) nearestAllowedWidth:(NSUInteger)requestedWidth;
+- (NSString *) parse:(LBAData *)data;
 
 @end

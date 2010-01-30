@@ -29,8 +29,25 @@
 
 @implementation LBAASCIIParser
 
++ (void) load {
+	[LBAParser registerParser:self];
+}
+
++ (NSString *)shortName {
+	return @"ASCII";
+}
++ (NSColor *)colorWithAlpha:(CGFloat)alpha {
+	return [NSColor colorWithCalibratedRed:0.25 green:0.90 blue:0.50 alpha:alpha];
+}
+
++ (NSUInteger)nearestAllowedWidth:(NSUInteger)requestedWidth {
+	return requestedWidth;
+}
+
 - (NSString *)parse:(LBAData *)data {
-	
+	const char *ascii = [[data data] bytes];
+	ascii += self.offset;
+	return [[[NSString alloc] initWithBytes:ascii length:self.width encoding:NSASCIIStringEncoding] autorelease];
 }
 
 @end
