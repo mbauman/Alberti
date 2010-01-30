@@ -13,6 +13,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C90373D411061C3900E60DD1 /* LBACollectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90373D311061C3900E60DD1 /* LBACollectWindow.xib */; };
+		C9671C511113AA8600C54382 /* LBAASCIIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C9671C501113AA8600C54382 /* LBAASCIIParser.m */; };
 		C969923C110031BD00BEEC08 /* LBASource.m in Sources */ = {isa = PBXBuildFile; fileRef = C969923B110031BD00BEEC08 /* LBASource.m */; };
 		C969923F1100356A00BEEC08 /* LBAData.m in Sources */ = {isa = PBXBuildFile; fileRef = C969923E1100356A00BEEC08 /* LBAData.m */; };
 		C9699296110573C200BEEC08 /* LBACollectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9699295110573C200BEEC08 /* LBACollectWindowController.m */; };
@@ -32,28 +33,28 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216 /* CHDataStructures.framework */;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = Framework;
 		};
 		C986CA2511128E2B004AAD58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = E473CB550E9346CB005CA997 /* CHDataStructures.octest */;
+			remoteGlobalIDString = E473CB550E9346CB005CA997;
 			remoteInfo = "Unit Testing";
 		};
 		C986CA2711128E2B004AAD58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = E44B59B40E95850F00F9DD1A /* Benchmarks */;
+			remoteGlobalIDString = E44B59B40E95850F00F9DD1A;
 			remoteInfo = Benchmarks;
 		};
 		C986CA7E111293B9004AAD58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* Framework */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = Framework;
 		};
 /* End PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		8D1107310486CEB800E47090 /* Alberti-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Alberti-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Alberti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alberti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90373D61106694200E60DD1 /* LBAEndian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAEndian.h; sourceTree = "<group>"; };
+		C9671C4F1113AA8600C54382 /* LBAASCIIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAASCIIParser.h; sourceTree = "<group>"; };
+		C9671C501113AA8600C54382 /* LBAASCIIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAASCIIParser.m; sourceTree = "<group>"; };
 		C969922E1100223200BEEC08 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/LBACollectWindow.xib; sourceTree = "<group>"; };
 		C969923A110031BD00BEEC08 /* LBASource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBASource.h; sourceTree = "<group>"; };
 		C969923B110031BD00BEEC08 /* LBASource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBASource.m; sourceTree = "<group>"; };
@@ -261,6 +264,8 @@
 		C986CB2C1112AE63004AAD58 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
+				C9671C4F1113AA8600C54382 /* LBAASCIIParser.h */,
+				C9671C501113AA8600C54382 /* LBAASCIIParser.m */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				C96994EF110D24E900BEEC08 /* LBAParserToolbar.m in Sources */,
 				C96994FE110D337C00BEEC08 /* LBADataView.m in Sources */,
 				C986CB1A11129F5D004AAD58 /* LBAParser.m in Sources */,
+				C9671C511113AA8600C54382 /* LBAASCIIParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
