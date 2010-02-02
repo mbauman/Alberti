@@ -25,14 +25,32 @@
 //
 
 #import "LBAParserToolbar.h"
+#import "LBAParser.h"
+#import "LBAParserControl.h"
 
+static NSSize defaultSize = {80,20};
 
 @implementation LBAParserToolbar
+
+- (BOOL) isFlipped {
+	return YES;
+}
+
+- (void) populateParsers {
+	while ([[self subviews] count]) [[[self subviews] lastObject] removeFromSuperview];
+	NSArray *parserTypes = [LBAParser registeredParsers];
+	for (Class p in parserTypes) {
+		/* TODO: Dynamically place these frames */
+		NSRect frame = {.origin = {10,10}, .size = defaultSize};
+		[self addSubview:[[[LBAParserControl alloc] initWithFrame:frame modelClass:p] autorelease]];
+		
+	}
+}
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code here.
+        [self populateParsers];
     }
     return self;
 }

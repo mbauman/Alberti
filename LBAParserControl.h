@@ -26,11 +26,18 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class LBAParser;
 
 @interface LBAParserControl : NSView {
 	Class modelClass;
+	LBAParser *representedObject;
+	NSColor *color;
 }
 
 @property (assign) Class modelClass;
+@property (retain) LBAParser *representedObject;
+@property (retain) NSColor *color;
+
+- (id) initWithFrame:(NSRect)frame modelClass:(Class)type;
 
 @end

@@ -40,7 +40,7 @@
 + (NSArray *) registeredParsers;
 
 + (NSString *) shortName;
-+ (NSColor *) colorWithAlpha:(CGFloat)alpha;
++ (NSColor *) color;
 + (NSUInteger) nearestAllowedWidth:(NSUInteger)requestedWidth;
 - (NSString *) parse:(LBAData *)data;
 

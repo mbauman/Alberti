@@ -87,7 +87,6 @@
 		8D1107310486CEB800E47090 /* Alberti-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Alberti-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Alberti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alberti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90373D61106694200E60DD1 /* LBAEndian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAEndian.h; sourceTree = "<group>"; };
-		C9671C4F1113AA8600C54382 /* LBAASCIIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAASCIIParser.h; sourceTree = "<group>"; };
 		C9671C501113AA8600C54382 /* LBAASCIIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAASCIIParser.m; sourceTree = "<group>"; };
 		C969922E1100223200BEEC08 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/LBACollectWindow.xib; sourceTree = "<group>"; };
 		C969923A110031BD00BEEC08 /* LBASource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBASource.h; sourceTree = "<group>"; };
@@ -269,7 +268,6 @@
 		C986CB2C1112AE63004AAD58 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
-				C9671C4F1113AA8600C54382 /* LBAASCIIParser.h */,
 				C9671C501113AA8600C54382 /* LBAASCIIParser.m */,
 			);
 			name = Parsers;

@@ -29,12 +29,13 @@
 
 @implementation LBAParserControl
 
-@synthesize modelClass;
+@synthesize modelClass, representedObject, color;
 
 - (id)initWithFrame:(NSRect)frame modelClass:(Class)type {
 	self = [super initWithFrame:frame];
 	if (self) {
 		self.modelClass = type;
+		self.color = [type color];
 	}
 	return self;
 }
@@ -44,7 +45,7 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-	[[self.modelClass colorWithAlpha:1.0] set];
+	[color set];
 	NSRectFill(dirtyRect);
 }
 

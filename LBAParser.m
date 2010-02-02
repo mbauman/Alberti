@@ -57,8 +57,8 @@ static NSMutableArray *registeredParsers = nil;
 	/* Note that this base implementation is not a _short_ name. Override it! */
 	return NSStringFromClass(self);
 }
-+ (NSColor *) colorWithAlpha:(CGFloat)alpha {
-	NSAssert(0,@"The 'colorWithAlpha:' method must be overridden by a concrete subclass");
++ (NSColor *) color {
+	NSAssert(0,@"The 'color' method must be overridden by a concrete subclass");
 }
 + (NSUInteger) nearestAllowedWidth:(NSUInteger)requestedWidth {
 	NSAssert(0,@"The 'allowedWidths' method must be overridden by a concrete subclass");
