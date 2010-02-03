@@ -26,7 +26,7 @@
 
 #import "LBAParserToolbar.h"
 #import "LBAParser.h"
-#import "LBAParserControl.h"
+#import "LBAParserControlPrototype.h"
 
 static NSSize defaultSize = {80,20};
 
@@ -42,7 +42,7 @@ static NSSize defaultSize = {80,20};
 	for (Class p in parserTypes) {
 		/* TODO: Dynamically place these frames */
 		NSRect frame = {.origin = {10,10}, .size = defaultSize};
-		[self addSubview:[[[LBAParserControl alloc] initWithFrame:frame modelClass:p] autorelease]];
+		[self addSubview:[[[LBAParserControlPrototype alloc] initWithFrame:frame modelClass:p] autorelease]];
 		
 	}
 }

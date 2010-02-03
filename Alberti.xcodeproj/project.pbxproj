@@ -22,6 +22,7 @@
 		C969930C1106BC1900BEEC08 /* LBAFileSourceSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C969930B1106BC1900BEEC08 /* LBAFileSourceSettings.xib */; };
 		C96994EF110D24E900BEEC08 /* LBAParserToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */; };
 		C96994FE110D337C00BEEC08 /* LBADataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96994FD110D337C00BEEC08 /* LBADataView.m */; };
+		C971936811194A01006228C4 /* LBAParserControlPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = C971936711194A01006228C4 /* LBAParserControlPrototype.m */; };
 		C986CA2D11128E3A004AAD58 /* CHDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
 		C986CA8311129497004AAD58 /* CHDataStructures.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
 		C986CAF011129BAD004AAD58 /* CHDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C986CA2411128E2B004AAD58 /* CHDataStructures.framework */; };
@@ -104,6 +105,8 @@
 		C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAParserToolbar.m; sourceTree = "<group>"; };
 		C96994FC110D337C00BEEC08 /* LBADataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBADataView.h; sourceTree = "<group>"; };
 		C96994FD110D337C00BEEC08 /* LBADataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBADataView.m; sourceTree = "<group>"; };
+		C971936611194A01006228C4 /* LBAParserControlPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAParserControlPrototype.h; sourceTree = "<group>"; };
+		C971936711194A01006228C4 /* LBAParserControlPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAParserControlPrototype.m; sourceTree = "<group>"; };
 		C986CA1611128E2B004AAD58 /* CHDataStructures.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CHDataStructures.xcodeproj; path = Frameworks/CHDataStructures/CHDataStructures.xcodeproj; sourceTree = "<group>"; };
 		C986CB1811129F5D004AAD58 /* LBAParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAParser.h; sourceTree = "<group>"; };
 		C986CB1911129F5D004AAD58 /* LBAParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAParser.m; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				C96994EE110D24E900BEEC08 /* LBAParserToolbar.m */,
 				C986CB921113FD6A004AAD58 /* LBAParserControl.h */,
 				C986CB931113FD6A004AAD58 /* LBAParserControl.m */,
+				C971936611194A01006228C4 /* LBAParserControlPrototype.h */,
+				C971936711194A01006228C4 /* LBAParserControlPrototype.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				C986CB1A11129F5D004AAD58 /* LBAParser.m in Sources */,
 				C9671C511113AA8600C54382 /* LBAASCIIParser.m in Sources */,
 				C986CB941113FD6A004AAD58 /* LBAParserControl.m in Sources */,
+				C971936811194A01006228C4 /* LBAParserControlPrototype.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

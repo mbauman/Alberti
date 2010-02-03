@@ -49,10 +49,28 @@
 	[super dealloc];
 }
 
+#pragma mark -
+#pragma mark Drawing
+
 - (void)drawRect:(NSRect)dirtyRect {
 	[color set];
 	NSRectFill(dirtyRect);
 }
+
+- (NSImage *) image {
+	NSSize imgSize = self.bounds.size;
+	
+	NSBitmapImageRep *bir = [self bitmapImageRepForCachingDisplayInRect:[self bounds]];
+	[bir setSize:imgSize];
+	[self cacheDisplayInRect:[self bounds] toBitmapImageRep:bir];
+	
+	NSImage* image = [[[NSImage alloc]initWithSize:imgSize] autorelease];
+	[image addRepresentation:bir];
+	return image;	
+}
+
+#pragma mark -
+#pragma mark General NSView methods
 
 - (BOOL) isFlipped {
 	return YES;

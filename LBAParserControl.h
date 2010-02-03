@@ -41,5 +41,5 @@
 @property (retain) NSColor *color;
 
 - (id) initWithFrame:(NSRect)frame modelClass:(Class)type;
-
+- (NSImage *) image;
 @end
