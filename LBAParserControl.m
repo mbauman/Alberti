@@ -44,9 +44,44 @@
 	return [self initWithFrame:frame modelClass:nil];
 }
 
+- (void) dealloc {
+	[color release];
+	[super dealloc];
+}
+
 - (void)drawRect:(NSRect)dirtyRect {
 	[color set];
 	NSRectFill(dirtyRect);
 }
+
+- (BOOL) isFlipped {
+	return YES;
+}
+
+
+- (BOOL) isOpaque {
+	return YES;
+}
+
+#pragma mark -
+#pragma mark Dragging
+
+- (BOOL) acceptsFirstMouse:(NSEvent *)theEvent {
+	return YES;
+}
+
+- (void)mouseDown:(NSEvent *)theEvent {
+	lastDragLocation = [theEvent locationInWindow];
+}
+
+- (void)mouseDragged:(NSEvent *)theEvent {
+	NSPoint newDragLocation = [theEvent locationInWindow];
+	NSPoint thisOrigin = [self frame].origin;
+	thisOrigin.x += (newDragLocation.x - lastDragLocation.x);
+	thisOrigin.y -= (newDragLocation.y - lastDragLocation.y);
+	[self setFrameOrigin:thisOrigin];
+	lastDragLocation = newDragLocation;
+}
+
 
 @end

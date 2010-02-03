@@ -32,6 +32,8 @@
 	Class modelClass;
 	LBAParser *representedObject;
 	NSColor *color;
+	
+	NSPoint lastDragLocation;
 }
 
 @property (assign) Class modelClass;
