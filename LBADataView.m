@@ -27,16 +27,19 @@
 #import "LBADataView.h"
 #import "LBAData.h"
 
+extern NSString *LBAParserPboardType;
 
 @implementation LBADataView
 
 @synthesize rawData;
 @synthesize rawHexTextAttributes, offsetTextAttributes, parsedTextAttributes;
 
+#pragma mark -
+#pragma mark Initialization
+
 + (void) initialize {
 	[self exposeBinding:@"rawDataArray"];
 }
-
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
@@ -51,6 +54,8 @@
 		byteStringSize = [@"00" sizeWithAttributes:self.rawHexTextAttributes];
 		lineHeight = byteStringSize.height + 2.0f;
 		bytesPerLine = 16;
+		
+		[self registerForDraggedTypes:[NSArray arrayWithObjects:LBAParserPboardType, nil]];
     }
     return self;
 }
@@ -63,9 +68,30 @@
 	[super dealloc];
 }
 
+#pragma mark -
+#pragma mark Setup
+
 - (NSString *) description {
     return [NSString stringWithFormat: @"<%@ 0x%x>", NSStringFromClass(isa), (void *)self];
 }
+
+
+#pragma mark -
+#pragma mark Drag and Drop
+
+- (NSDragOperation) draggingEntered:(id <NSDraggingInfo>)sender {
+	NSLog(@"%@ Entered",sender);
+	return NSDragOperationGeneric;
+}
+
+- (BOOL) prepareForDragOperation:(id <NSDraggingInfo>)sender {
+	NSLog(@"Prepared For %@",sender);
+	return YES;
+}
+
+
+#pragma mark -
+#pragma mark Drawing
 
 - (BOOL) isFlipped {
 	return YES;

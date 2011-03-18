@@ -8,6 +8,7 @@
 
 #import "LBAParserControlPrototype.h"
 
+NSString *LBAParserPboardType = @"com.magneticbrain.Alberti.ParserPboardType";
 
 @implementation LBAParserControlPrototype
 
@@ -25,8 +26,8 @@
 
 - (void)mouseDown:(NSEvent *)theEvent {
 	NSPasteboard *pboard = [NSPasteboard pasteboardWithName:NSDragPboard];
-	[pboard declareTypes:[NSArray arrayWithObject:NSTIFFPboardType]  owner:self];
-	[pboard setData:[[self image] TIFFRepresentation] forType:NSTIFFPboardType];
+	[pboard declareTypes:[NSArray arrayWithObject:LBAParserPboardType]  owner:self];
+	[pboard setData:[NSStringFromClass([self modelClass]) dataUsingEncoding:NSUTF8StringEncoding] forType:LBAParserPboardType];
 	[self dragImage:[self image] 
 				 at:NSMakePoint(0.0, self.bounds.size.height) 
 			 offset:NSMakeSize(0.0, 0.0) 
